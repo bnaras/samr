@@ -1,0 +1,44 @@
+import(impute)
+import(shiny)
+import(openxlsx)
+import(matrixStats)
+import(GSA)
+importFrom("grDevices", "dev.off")
+importFrom("graphics", "abline", "lines", "mtext", "par", "plot",
+           "points", "title")
+importFrom("stats", "mad", "median", "predict", "quantile", "rpois",
+           "runif", "smooth.spline", "var")
+
+S3method(print, SAMoutput)
+S3method(plot, SAMoutput)
+
+export(SAM,
+       SAMseq,
+       plot.SAMoutput,
+       print.SAMoutput,
+       samr,
+       check.format,
+       quantitative.func,
+       ttest.func,
+       samr.assess.samplesize,
+       samr.assess.samplesize.plot,
+       samr.compute.delta.table,
+       samr.compute.siggenes.table,
+       samr.plot,
+       samr.missrate,
+       samr.norm.data,
+       samr.estimate.depth,
+       samr.pvalues.from.perms,
+       samr.tail.strength,
+       samr.const.quantitative.response,
+       samr.const.twoclass.unpaired.response,
+       samr.const.survival.response,
+       samr.const.multiclass.response,
+       samr.const.oneclass.response,
+       samr.const.twoclass.paired.response,
+       samr.const.twoclass.unpaired.timecourse.response,
+       samr.const.twoclass.paired.timecourse.response,
+       samr.const.oneclass.timecourse.response,
+       samr.const.patterndiscovery.response,
+       runSAM)
+useDynLib(samr)
