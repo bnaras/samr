@@ -13,7 +13,7 @@ source("GSA.plot.revised.R")
 shinyServer(function(input, output, session) {  
 
   roots = c(root='/', examples =  system.file("excel",package="samr"))
-  shinyFileChoose(input, 'file', roots= roots, session=session, filetypes = ".xlsx")
+  shinyFileChoose(input, 'file', roots= roots, session=session)
   ##########Read uploaded data!
   
   getData = reactive({
@@ -181,7 +181,6 @@ shinyServer(function(input, output, session) {
         current = matrix(NA, nrow = 10, ncol = 1)
         
         objFile = parseFilePaths(roots, input$file)$datapath[1]
-        print(objFile)
         gmtFile = input$gmtFile  
         s0.perc = if(is.na(input$s0.perc) || input$s0 == "Automatic"){"Automatic"}else{paste(input$s0.perc, " percentile")}
         
@@ -554,7 +553,6 @@ shinyServer(function(input, output, session) {
           current = matrix(NA, nrow = 14, ncol = 1)
           
           objFile = parseFilePaths(roots, input$file)$datapath[1]
-          print(objFile)
           s0.perc = if(is.na(input$s0.perc) || input$s0 == "Automatic"){"Automatic"}else{paste(input$s0.perc, " percentile")}
           
           current[1,1] = as.character(objFile)
