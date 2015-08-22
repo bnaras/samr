@@ -4,7 +4,7 @@ Version: 3.0
 Author: R. Tibshirani, Michael J. Seo, G. Chu, Balasubramanian Narasimhan, Jun Li
 Description: Significance Analysis of Microarrays for differential expression analysis and related problems.
 Maintainer: Rob Tibshirani <tibs@stanford.edu>
-Depends: impute, matrixStats, shiny, openxlsx, GSA
+Depends: impute, matrixStats, shiny, shinyFiles, openxlsx, GSA
 License: LGPL
 URL: http://www-stat.stanford.edu/~tibs/SAM
 Packaged: 2015-08-20 19:08:56 UTC; naras
