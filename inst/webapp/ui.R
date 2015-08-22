@@ -8,12 +8,9 @@ shinyUI(fluidPage(
     column(3, 
     wellPanel(
     
-    textInput("iFile", "File:", value = NA),
-    actionButton("browse", "Browse"),
+    shinyFilesButton('file', 'File select', 'Please select a file', FALSE),
     br(),
     br(),
- #   fileInput(inputId = "iFile", label = "", accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"),  
- #   uiOutput(outputId = "ui"),
     conditionalPanel(condition = "input.analysisType == 'Standard'",
       actionButton("goButton", "Run")
     ),
