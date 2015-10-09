@@ -1,8 +1,11 @@
-import(impute)
 import(shiny)
-import(openxlsx)
+importFrom(shinyFiles, shinyFilesButton, shinyFileChoose, getVolumes)
+importFrom(openxlsx, read.xlsx, writeData, saveWorkbook, insertImage, addStyle, addWorksheet,
+           createWorkbook, setColWidths)
 import(matrixStats)
-import(GSA)
+importFrom(GSA, GSA, GSA.correlate, GSA.func, GSA.genescores, GSA.listsets, GSA.make.features,
+           GSA.plot, GSA.read.gmt)
+importFrom(impute, impute.knn)
 importFrom("grDevices", "dev.off")
 importFrom("graphics", "abline", "lines", "mtext", "par", "plot",
            "points", "title")
