@@ -1401,16 +1401,16 @@ samr.tail.strength = function(samr.obj) {
 	return(list(ts = ts, se.ts = se.ts.perm))
 }
 
-quant <- function(x) {
-	#dyn.load('/home/tibs/PAPERS/copa/quant.so')
-	p = as.integer(nrow(x))
-	n = as.integer(ncol(x))
-	xx = t(x)
-	storage.mode(xx) = "single"
-	junk = .Fortran("quant", as.matrix(xx), n, p, integer(n),
-		out = single(2 * p), PACKAGE = "samr")
-	return(matrix(junk$out, ncol = 2))
-}
+## quant <- function(x) {
+## 	#dyn.load('/home/tibs/PAPERS/copa/quant.so')
+## 	p = as.integer(nrow(x))
+## 	n = as.integer(ncol(x))
+## 	xx = t(x)
+## 	storage.mode(xx) = "single"
+## 	junk = .Fortran("quant", as.matrix(xx), n, p, integer(n),
+## 		out = single(2 * p), PACKAGE = "samr")
+## 	return(matrix(junk$out, ncol = 2))
+## }
 
 ################
 #new functions for SAMseq
@@ -1635,13 +1635,13 @@ rankcol = function(x) {
 	p = ncol(x)
 	mode(n) = "integer"
 	mode(p) = "integer"
-	mode(x) = "single"
+	mode(x) = "double"
 	if (!is.loaded("rankcol")) {
 		#dyn.load('/home/tibs/PAPERS/jun2/test/rankcol.so')
 	}
-	junk = .Fortran("rankcol", x, n, p, xr = integer(n * p),
+	junk = .Fortran("rankcol", x, n, ip = p, ixr = integer(n * p),
 		integer(n), PACKAGE = "samr")
-	xr = matrix(junk$xr, nrow = n, ncol = p)
+	xr = matrix(junk$ixr, nrow = n, ncol = p)
 	return(xr)
 }
 
